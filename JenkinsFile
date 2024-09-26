@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clonage du dépôt GitHub') {
+            steps {
+                // Clone du dépôt GitHub depuis la branche 'main'
+                git branch: 'main', url: 'https://github.com/yossrSafaeProjet/TestJenkins.git'
+            }
+        }
+        stage('Installation de Python 3.11 et pip') {
+            steps {
+                // Installe Python 3.11 et pip
+                sh '''
+                    sudo apt update
+                    sudo apt install -y python3.11 python3.11-venv python3-pip
+                '''
+            }
+        }
+        stage('Exécution du script Python') {
+            steps {
+                // Exécuter le script Python depuis le dépôt cloné
+                sh 'python3.11 OSDetector.py'
+            }
+        }
+    }
+}
