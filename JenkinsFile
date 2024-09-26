@@ -4,7 +4,7 @@ pipeline {
         stage('Clonage du dépôt GitHub') {
             steps {
                 // Clone du dépôt GitHub depuis la branche 'main'
-                git branch: 'main', url: 'https://github.com/yossrSafaeProjet/TestJenkins.git'
+                git branch: 'main', url: 'https://github.com/yossrSafaeProjet/TestJenkins'
             }
         }
         stage('Installation de Python 3.11 et pip') {
